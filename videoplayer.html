@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Archive of Letourneau</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/wordle.css">
+    <link rel="stylesheet" href="styles/playerchannel.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.png">
+  </head>
+
+  <style>
+    p {
+      font-family: Roboto;
+    }
+  </style>
+
+  <body>
+    <div class="menu-stuff">
+      <div class="header">
+        <div class="secleft">
+          <button class="menu-button" id="menuButton">
+            <img src="icons/hamburger-menu.svg" alt="" style="height: 30px; filter: invert();">
+          </button>
+          <a class="nl-icon" href="./youtube.html">
+            <img src="thumbnails/nl-icon.png" alt="" style="height: 100%;">
+          </a>
+          <p class="page-title">Letourneau.tv</p>
+        </div>
+  
+      <div class="secmid">
+        <input class="search-bar" type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="icons/search.svg" alt="" style="filter: invert();">
+        </button>
+      </div>
+        
+      <div class="secright">
+        <a class="nl-icon" href="https://www.youtube.com/@Northernlion">
+          <img class="pfp" src="thumbnails/pfp.png" alt="" style="height: 60%;">
+        </a>
+      </div>
+      </div>
+      <div class="sidebar" id="sidebar">
+        <div class="home">
+          <a class="sidebar-button" href="/youtube.html">
+            <img src="icons/home.svg" alt="" style="height: 25px; filter: invert();">
+            <p>Home</p>
+          </a>
+          <a class="sidebar-button" href="/youtube.html">
+            <img src="icons/subscriptions.svg" alt="" style="height: 25px; filter: invert();">
+            <p>Subscriptions</p>
+          </a>
+          <button class="wordle-button">
+            <img src="icons/wordle-logo.png" class="wordle-logo" alt="" style="height: 25px;">
+            <p class="wordle-button-text">Wordle</p>
+          </button>
+        </div>
+        <div class="user">
+          <p class="sidebar-title">You</p>
+        </div>
+        <div class="subscriptions">
+          <p class="sidebar-title">Subscriptions</p>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+          <a class="sidebar-button" href="https://www.youtube.com/@Northernlion">
+            <img src="thumbnails/pfp.png" alt="" style="height: 25px;">
+            <p>Northernlion</p>
+          </a>
+        </div>
+        <div class="settings">
+        </div>
+      </div>
+    </div>
+    <div class="player-and-data">
+    <iframe class="video-player" allowfullscreen>
+    </iframe> 
+    <div class="played-data">
+      <img class="channel-banner" src="thumbnails/channel_banner.jpg" alt="">
+      <div class = "pfp-name-sub">
+        <img class="channel-profile" src="thumbnails/pfp.png" alt="" class="banner-pfp">
+        <div style="display: flex; flex-direction: column;">
+          <p class="channel-title" >Northernlion</p>
+          <p class="subs">Placeholder</p>
+        </div>
+      </div>
+      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae?</p>
+    </div>
+    </div>
+
+    <!-- PREVIOUS WORDLE SECTION - deprecated, now a separate project 
+    <div class="wordle">
+      <div class="wordle-box">
+        <div class="wordle-title"> <p>WORDLE</p></div>
+        <a href="https://www.nytimes.com/2023/08/01/crosswords/how-to-talk-about-wordle.html" class="howtoplay">How to play</a>
+      </div>
+    </div> -->
+  <script type="module" src="main.js"></script>
+  <!-- <script type="module" src="wordle.js"></script> -->
+  </body>
+</html>

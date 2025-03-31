@@ -1,0 +1,94 @@
+.wordle {
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 125px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.wordle-box {
+    position: relative;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: rgb(32, 32, 32);
+}
+
+.wordle-title {
+    position: absolute;
+    top: -100px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(231, 231, 231);
+}
+
+.wordle-row {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.letter-box {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 3px;
+    border-style: none;
+    text-align: center;
+    font-size: 30px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: rgb(231, 231, 231);
+    transition: background-color 0.15s;
+}
+
+.howtoplay {
+    position: absolute;
+    height: 45px;
+    line-height: 45px;
+    width: 120px;
+    text-align: center;
+    bottom: -60px;
+    background-color: rgb(42, 117, 42);
+    border-radius: 10px;
+    font-family: Roboto;
+    color: rgb(231, 231, 231);
+}
+
+.howtoplay:hover {
+    position: absolute;
+    height: 45px;
+    line-height: 45px;
+    width: 120px;
+    text-align: center;
+    bottom: -60px;
+    background-color: rgb(44, 99, 34);
+    border-radius: 10px;
+    font-family: Roboto;
+    color: rgb(231, 231, 231);
+}
+
+
+.green {
+    background-color: rgb(45, 185, 45);
+    transition: background-color 0.15s;
+}
+
+.yellow {
+    background-color: rgb(215, 200, 30);
+    transition: background-color 0.15s;
+}
+
+.red {
+    background-color: rgb(200, 25, 25);
+    transition: background-color 0.15s;
+}
