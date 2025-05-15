@@ -14,7 +14,9 @@ if( currentPage === '/youtube.html'){
 }
 
 const numVids = 20;
-const ytDataApiKey = 'AIzaSyDzaL-2_rvFGzmXFJexDTP0XJgD73PI2dE';
+
+const ytDataApiKey = 'KEY HERE';
+
 const ytViewsApiLink = `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=ZBfzCKVOzVE&key=${ytDataApiKey}`;
 const ytApiLink =`https://youtube.googleapis.com/youtube/v3/search?` + 
                  `key=${ytDataApiKey}&part=snippet&channelId=UC3tNpTOHsTnkmbwztCs30sA&maxResults=${numVids}&order=date&type=video&videoDuration=long`;
@@ -24,14 +26,12 @@ const channelApiLink= `https://youtube.googleapis.com/youtube/v3/channels?part=s
 //base loadup stuff
 
 let currentDay = new Date().toLocaleDateString();
-//currentDay === localStorage.getItem('date-check') ? console.log('No more credits baby frick yeah') : localStorage["date-check"] = currentDay;
 
 if(currentPage === '/youtube.html'){
     displayVideos(ytApiLink, numVids, currentDay);
-    //console.log(JSON.parse(localStorage.getItem('videoData')));
 
 } else if (currentPage === '/videoplayer.html') {
-    console.log(localStorage.getItem('videoId'));
+  
     videoPlayerBox = document.querySelector('.player-and-data');
     videoPlayer = document.querySelector('.video-player');
     videoPlayer.setAttribute('src', `https://www.youtube.com/embed/${localStorage.getItem('videoId')}?autoplay=1&hd=1`);
@@ -100,7 +100,7 @@ async function fetchData(link) {
         }
 
         const data = await response.json();
-        //console.log(data);
+        
         return data;
     }
     catch(error){
@@ -115,7 +115,6 @@ function publishedAgo (date) {
     const publishedDate = new Date(date);
 
     let diffMinutes = (currentDate - publishedDate) / 60000;
-    //console.log(`MINUTES : ${diffMinutes}`);
     
     if (diffMinutes < 60) {
         return [Math.floor(diffMinutes), 'minute'];
@@ -139,19 +138,21 @@ async function setVideos(videoData, videoCount) {
     
     for (let i = 0; i < videoCount; i++) { 
         const video = data.items[i].snippet;
-        //console.log(video);
+     
         const id = data.items[i].id.videoId;
         const link = `https://www.youtube.com/watch?v=${id}`;
         const viewsLink = `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${ytDataApiKey}`;
-        //console.log(viewsLink);
+     
         const viewsData = await fetchData(viewsLink);
-        //console.log(viewsData);
+
 
         const title = video.title;
         const thumbnail = video.thumbnails.high.url;
         const channelName = video.channelTitle;
         const publishTime = video.publishTime;
+        
         let viewCount = viewsData.items[0].statistics.viewCount;
+        
         let viewString;
         if (viewCount >= 1000) {
             viewCount = Math.floor(viewCount/1000);
@@ -159,7 +160,7 @@ async function setVideos(videoData, videoCount) {
         } else {viewString = `${viewCount} views`};
 
         let publishedTimeAgo = publishedAgo(publishTime)[0];
-        //console.log(`TIME: ${publishedTimeAgo}`);
+
         let publishedTimeAgoMetric = publishedAgo(publishTime)[1];
         if (publishedTimeAgo > 1) {
             publishedTimeAgoMetric += 's';
@@ -167,9 +168,6 @@ async function setVideos(videoData, videoCount) {
 
         const grid = document.querySelector('.video-grid');
 
-        // if (grid) {
-        //     grid.addEventListener('click', getEmbedData);
-        // }
 
         let vidElem = document.createElement('div');
         vidElem.classList.add('video');
@@ -198,7 +196,7 @@ async function displayVideos(source, videoCount, day) {
     
     let data;
 
-    //troubleshoot functions
+    // TROUBLESHOOTING - use if page doesn't load correctly on first startup
     // data = await fetchData(source);
     // localStorage.setItem ("videoData", JSON.stringify(data));
 
@@ -208,7 +206,6 @@ async function displayVideos(source, videoCount, day) {
         localStorage["date-check"] = currentDay;
     } else { data = JSON.parse(localStorage.getItem('videoData'));
         }
-    //console.log(data);
     await setVideos(data, videoCount);
 
     const thumbnails = document.querySelectorAll('.clickable-thumbnail');
@@ -216,12 +213,11 @@ async function displayVideos(source, videoCount, day) {
 
     for(const thumbnail of thumbnails){
         thumbnail.addEventListener('mousedown', getEmbedData);
-        console.log('working1');
     }
 
     for(const title of titles){
         title.addEventListener('mousedown', getEmbedData);
-        console.log('working2');
+        
     }
 
 }
@@ -232,9 +228,6 @@ function getEmbedData (event) {
         const videoId = clickedItem.getAttribute('video-id');
         if (videoId) {
             localStorage.setItem('videoId', videoId);
-            console.log(videoId);
         }
     }
-    console.log(clickedItem.getAttribute('video-id'));
-    console.log('just give me anything bro');
 }
